@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+torch
+torchvision
+timm
+ultralytics
+pillow
+python-multipart
+minio
+tensorflow
