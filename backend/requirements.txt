@@ -8,3 +8,5 @@ pillow
 python-multipart
 minio
 tensorflow
+boto3
+
