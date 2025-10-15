@@ -1,11 +1,11 @@
 
-
 import streamlit as st
 from utils.api_client import APIClient
 from utils.s3_client import S3Client
 
-API_URL = "http://127.0.0.1:8000"
-client = APIClient(API_URL)
+#API_URL = "http://127.0.0.1:8000"
+#client = APIClient(API_URL)
+client = APIClient()
 s3_client = S3Client()
 
 st.set_page_config(page_title="Diagnosis", layout="centered")

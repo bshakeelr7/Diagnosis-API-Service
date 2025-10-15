@@ -3,6 +3,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.app.routes import image
 from backend.app.utils.minio_utils import download_models 
+import os
+from backend.app.config import API_PORT
 app = FastAPI(title="Dementia Platform Backend")
 
 app.add_middleware(
@@ -26,6 +28,7 @@ async def startup_event():
     download_models()
 
 if __name__ == "__main__":
-    uvicorn.run("backend.app.main:app", host="0.0.0.0", port=8000, reload=True)
+    backend_port = API_PORT
+    uvicorn.run("backend.app.main:app", host="0.0.0.0", port=backend_port, reload=True)
 
 

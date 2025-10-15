@@ -1,0 +1,19 @@
+# Dockerfile.base
+FROM python:3.13-slim
+
+WORKDIR /app
+
+# 1. Install System Dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        libgl1 \
+        libsm6 \
+        libxext6 \
+        libxrender1 \
+        libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+# 2. Install Python Dependencies
+# Since this Dockerfile is in the root, it can COPY the requirements.txt from the root.
+COPY backend/requirements.txt . 
+RUN pip install --no-cache-dir -r requirements.txt

@@ -1,10 +1,13 @@
 from minio import Minio
 import os
 import logging
+from dotenv import load_dotenv
+from backend.app.config import MINIO_HOST, MINIO_PORT
 
 def download_models():
+    minio_endpoint = f"{MINIO_HOST}:{MINIO_PORT}"
     client = Minio(
-        "localhost:9000",  
+        minio_endpoint,  
         access_key="admin",
         secret_key="admin123",
         secure=False
